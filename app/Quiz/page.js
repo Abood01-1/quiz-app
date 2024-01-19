@@ -26,7 +26,6 @@ function page() {
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const [question, setQuestion] = useState(allQuestion[currentQuestion]);
-  console.log(question);
   const [answers, setAnswers] = useState([]);
 
   function handleScore(e) {
@@ -59,23 +58,21 @@ function page() {
     <Container
       className='welcome'
       position='relative'
-      overflow='scroll'
+      overflowY='scroll'
       width='600px'
       borderRadius='5px'
       h='80%'
       p='30px'
       bg='#f9f9f9'
     >
-      <Box
-        position='absolute'
-        top='-60%'
-        zIndex='9'
-        backgroundImage={`url(${Wave})`}
-        className='bg-wave2'
-      />
       {currentQuestion !== 10 ? (
-        <Stack className='container-stack' spacing='50px'>
-          <Heading color='#f8f8f8' zIndex='10' pt='40px' textAlign='center'>
+        <Stack className='container-stack' spacing='30px'>
+          <Heading
+            color='cornflowerblue'
+            zIndex='10'
+            pt='25px'
+            textAlign='center'
+          >
             {question.question}
           </Heading>
           <hr style={{ width: "100%" }} />

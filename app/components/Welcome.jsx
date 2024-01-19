@@ -36,7 +36,7 @@ function Welcome() {
       h='60%'
       p='30px'
       spacing='30px'
-      className="welcome"
+      className='welcome'
     >
       <Box zIndex='9' position='absolute' className='bg-wave'></Box>
       <Heading zIndex='10' as='h1' textAlign='center' color='#f1f1f1'>
@@ -71,11 +71,12 @@ function Welcome() {
           href={{ pathname: "/Quiz", query: { data: JSON.stringify(quizes) } }}
         >
           <Button w='100%' bg='blue.400' color='gray.50' colorScheme='blue.900'>
-            Let's Go
+            CLICK TO START
           </Button>
         </Link>
       ) : (
         <Button
+          cursor={loader && "not-allowed"}
           zIndex='10'
           onClick={handleSubmit}
           bg='blue.400'
