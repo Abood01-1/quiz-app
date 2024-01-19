@@ -14,6 +14,7 @@ import {
 import "../globals.css";
 import Wave from "../assets/Wave.svg";
 import Link from "next/link";
+import Confetti from "react-confetti";
 
 function page() {
   const searchParams = useSearchParams();
@@ -58,7 +59,7 @@ function page() {
     <Container
       className='welcome'
       position='relative'
-      overflow='hidden'
+      overflow='scroll'
       width='600px'
       borderRadius='5px'
       h='80%'
@@ -73,11 +74,12 @@ function page() {
         className='bg-wave2'
       />
       {currentQuestion !== 10 ? (
-        <Stack spacing='50px'>
+        <Stack className='container-stack' spacing='50px'>
           <Heading color='#f8f8f8' zIndex='10' pt='40px' textAlign='center'>
             {question.question}
           </Heading>
-          <Grid templateColumns='repeat(2, 1fr)'>
+          <hr style={{ width: "100%" }} />
+          <Grid className='grid' templateColumns='repeat(2, 1fr)'>
             {answers.map((ele, index) => {
               return (
                 ele !== undefined && (
@@ -104,7 +106,7 @@ function page() {
           </Grid>
           {selectedAnswer && (
             <Button
-            className="next"
+              className='next'
               color='#f8f8f8'
               bg='#0099ff'
               border='0'
@@ -122,28 +124,34 @@ function page() {
           )}
         </Stack>
       ) : (
-        <Stack
-          textAlign='center'
-          color='#f8f8f8'
-          position='relative'
-          zIndex='10'
-          direction='column'
-          spacing='10px'
-        >
-          <Heading as='h1'>Your Score is: {score} / 10</Heading>
-          <Link href='/'>
-            <Button
-              bg='#f8f8f8'
-              color='#0066ff'
-              borderRadius='5px'
-              border='none'
-              p='7px 10px '
-              cursor='pointer'
-            >
-              Restart
-            </Button>
-          </Link>
-        </Stack>
+        <>
+          <Confetti />
+          <Stack
+            textAlign='center'
+            color='#f8f8f8'
+            position='relative'
+            zIndex='10'
+            direction='column'
+            spacing='10px'
+          >
+            <Heading color='black' as='h1'>
+              Your Score is: {score} / 10
+            </Heading>
+            <Link href='/'>
+              <Button
+                bg='#0066ff'
+                fontSize='20px'
+                color='#f8f8f8'
+                borderRadius='5px'
+                border='none'
+                p='7px 10px '
+                cursor='pointer'
+              >
+                Restart
+              </Button>
+            </Link>
+          </Stack>
+        </>
       )}
     </Container>
   );

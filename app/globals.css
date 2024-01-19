@@ -34,6 +34,8 @@ body {
   }
   h2 {
     font-size: 17px;
+    width: 100%;
+    color: cornflowerblue !important;
     padding-top: 0px !important;
   }
   .next {
@@ -44,8 +46,13 @@ body {
   .bg-wave {
     top: -75%;
   }
+  .container-stack {
+    gap: 10px !important;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
   .bg-wave2 {
-    top: -67%;
-    margin-bottom: 10px;
+    display: none;
   }
 }
