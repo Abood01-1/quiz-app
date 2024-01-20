@@ -19,7 +19,7 @@ import Confetti from "react-confetti";
 function page() {
   const searchParams = useSearchParams();
   const search = searchParams.getAll("data");
-
+  //select all the questions
   const [allQuestion, setAllQquestion] = useState(JSON.parse(search));
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
